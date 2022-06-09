@@ -24,6 +24,16 @@ export const App = () => {
     setIncompleteTodos(newTodos);
   };
 
+  // TODOを完了
+  const onClickComplete = (index) => {
+    const newIncompleteTodos = [...incompleteTodos];
+    newIncompleteTodos.splice(index, 1);
+
+    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
+    setIncompleteTodos(newIncompleteTodos);
+    setCompleteTodos(newCompleteTodos);
+  };
+
   return (
     <>
       <div className="input-area">
@@ -42,7 +52,7 @@ export const App = () => {
               // 仮想Domでは差分のみ反映するため、ループでレンダリングする場合に、何個目の要素なのかを正確に比較するための目印(key)を付ける
               <div key={todo} className="list-row">
                 <li>{todo}</li>
-                <button>完了</button>
+                <button onClick={() => onClickComplete(index)}>完了</button>
                 <button onClick={() => onClickDelete(index)}>削除</button>
               </div>
             );
