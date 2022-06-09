@@ -1,2 +1,2 @@
-# codesandbox-todo-react
+# codesandbox-react
 Created with CodeSandbox
